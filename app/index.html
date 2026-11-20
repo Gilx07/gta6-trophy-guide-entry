@@ -3,23 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI (PS5)</title>
+<meta name="description" content="All 55 Grand Theft Auto VI trophies with an own-words guide each, a progress checklist, a platinum roadmap and one missable warning. Works offline.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="sub">Every trophy, a guide in plain words, and a road to the platinum. All offline — your ticks live in this browser only.</p>
+  </div>
+  <div class="progress" aria-label="Trophy progress">
+    <p class="progress-big"><span id="progressText">0 of 55 earned</span></p>
+    <div class="bar" role="progressbar" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBarWrap"><div class="bar-fill" id="progressBar" style="width:0%"></div></div>
+    <p class="grade-counts" id="gradeCounts">Platinum 0/1 &middot; Gold 0/2 &middot; Silver 0/6 &middot; Bronze 0/46</p>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
-<script type="module" src="app.js"></script>
+
+<nav class="tabs" aria-label="Views">
+  <button type="button" id="tabChecklist" class="tab active" aria-pressed="true">Checklist</button>
+  <button type="button" id="tabRoadmap" class="tab" aria-pressed="false">Roadmap to platinum</button>
+</nav>
+
+<section class="toolbar" aria-label="Filters and progress tools">
+  <label class="search">Search <input id="search" type="search" placeholder="trophy, mission, activity…" autocomplete="off"></label>
+  <div class="chips" id="kindChips" role="group" aria-label="Filter by kind"></div>
+  <label>Grade
+    <select id="gradeSelect">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Show
+    <select id="statusSelect">
+      <option value="all">All trophies</option>
+      <option value="earned">Earned only</option>
+      <option value="remaining">Remaining only</option>
+    </select>
+  </label>
+  <label class="spoiler"><input id="spoilerToggle" type="checkbox"> Hide story spoilers</label>
+  <div class="tools">
+    <button type="button" id="exportBtn">Export progress</button>
+    <label class="import">Import progress <input id="importInput" type="file" accept="application/json,.json"></label>
+    <button type="button" id="resetBtn" class="quiet">Reset</button>
+  </div>
+</section>
+
+<p class="showing" id="showingCount" aria-live="polite"></p>
+
+<main class="layout" id="checklistView">
+  <section class="list" id="list" aria-label="Trophy list"></section>
+  <aside class="detail" id="detail" aria-label="Trophy guide" aria-live="polite"></aside>
+</main>
+
+<main class="layout roadmap-view" id="roadmapView" hidden>
+  <section class="roadmap" id="roadmap" aria-label="Roadmap to the platinum"></section>
+</main>
+
+<footer>
+  <h2>Sources &amp; notes</h2>
+  <p>Trophy names, descriptions and grades are the official list (55 trophies: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze; all offline; one playthrough is enough; cheats disable trophies and saving; platinum takes roughly 200 hours, mostly the 100% cleanup). The guides beside each trophy are written for this page, in its own words.</p>
+  <ul>
+    <li><a href="https://gtascoop.com/guides/gta-6-trophies-achievements/">GTAScoop — GTA 6 trophies &amp; achievements</a> (list updated 19 Nov 2026)</li>
+    <li><a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">Push Square — GTA 6 trophy guide and roadmap</a></li>
+    <li>Radio Times, Insider Gaming and KeenGamer trophy lists and roadmaps (all agree on the 55 names and grades)</li>
+  </ul>
+  <p>Five trophies are still unconfirmed by every guide above and are flagged honestly on this page — no method is invented for them. Only one trophy is possibly missable: <strong>Positive Mental Attitude</strong>. Meditate at Jason&rsquo;s house in Chapter 1, early, before the chapter ends.</p>
+</footer>
+
+<script type="module" src="js/main.js"></script>
 </body>
 </html>
